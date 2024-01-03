@@ -13,9 +13,7 @@ Riverpodを利用しつつ、この`AppLifecycleState`を入手したいと考�
 
 公式ドキュメントを見ると、以下のような説明があります。
 
-```
-The current application state can be obtained from SchedulerBinding.instance.lifecycleState, and changes to the state can be observed by creating an AppLifecycleListener, or by using a WidgetsBindingObserver by overriding the WidgetsBindingObserver.didChangeAppLifecycleState method.
-```
+> The current application state can be obtained from SchedulerBinding.instance.lifecycleState, and changes to the state can be observed by creating an AppLifecycleListener, or by using a WidgetsBindingObserver by overriding the WidgetsBindingObserver.didChangeAppLifecycleState method.
 
 あとは、こちらのRemiさんのtweetを参考にします。
 https://x.com/remi_rousselet/status/1486675682491092997?s=20
