@@ -18,7 +18,7 @@ Riverpodを利用しつつ、この`AppLifecycleState`を入手したいと考�
 あとは、こちらのRemiさんのtweetを参考にします。
 https://x.com/remi_rousselet/status/1486675682491092997?s=20
 
-ついでに、[connectivity_plus](https://pub.dev/packages/connectivity_plus)を利用してネットワーク接続も検出するようにします。
+それから（これはある意味ついでなのですが）、[connectivity_plus](https://pub.dev/packages/connectivity_plus)を利用してネットワーク接続も検出するようにしておきます。
 
 # 2. pubspec.yaml
 
