@@ -1,5 +1,5 @@
 ---
-title: "【Flutter】Riverpodを利用してAppLifecycleStateとconnectivity_plusのネットワーク接続を検出する"
+title: "【Flutter】Riverpodを利用しAppLifecycleStateとネットワーク接続(connectivity_plus)を検出"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "AppLifecycle", "connectivity_plus"]
