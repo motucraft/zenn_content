@@ -183,7 +183,7 @@ class AppLifecycle extends ConsumerWidget {
 
 # 4. おわりに
 
-渡しの場合、`AppLifecycleState`を入手したいというモチベーションはFirestoreでした。
-Firestoreのsnapshotを利用しているときに、アプリがバックグラウンドへ移行したならsnapshotをキャンセルしたかったためです。
+私の場合、`AppLifecycleState`を入手したいというモチベーションはFirestore絡みでした。
+Firestoreのsnapshotを利用しているとき、アプリがバックグラウンドへ移行したのであればsnapshotをキャンセルしたかったためです。そうしないと、アプリが表示されていないのにドキュメントの更新に伴う通信を受けてしまいますからね。
 
 この実装で`AppLifecycleState`（と、ついでにネットワーク接続も）検出できるようになりましたので、Firestore周りに適用していこうと思います。
