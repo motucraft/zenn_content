@@ -3,7 +3,7 @@ title: "【Flutter】Riverpodを利用しAppLifecycleStateとネットワーク�
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "AppLifecycle", "connectivity_plus"]
-published: false
+published: true
 ---
 
 # 1. はじめに
