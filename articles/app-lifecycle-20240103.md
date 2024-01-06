@@ -187,3 +187,7 @@ class AppLifecycle extends ConsumerWidget {
 Firestoreのsnapshotを利用しているとき、アプリがバックグラウンドへ移行したのであればsnapshotをキャンセルしたかったためです。そうしないと、アプリが表示されていないのにドキュメントの更新に伴う通信を受けてしまいますからね。
 
 この実装で`AppLifecycleState`（と、ついでにネットワーク接続も）検出できるようになりましたので、Firestore周りに適用していこうと思います。
+
+# 5. 追記
+
+hooksが使えるのであれば、[useAppLifecycleState](https://pub.dev/documentation/flutter_hooks/latest/flutter_hooks/useAppLifecycleState.html)を使っても良いですね。
