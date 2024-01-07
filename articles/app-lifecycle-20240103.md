@@ -196,7 +196,7 @@ hooksが使えるのであれば、[useAppLifecycleState](https://pub.dev/docume
 
 Androidの場合、`AppLifecycleState.paused`が検出できないという問題に気づきました。
 
-参考：https://github.com/flutter/flutter/issues/114756
+https://github.com/flutter/flutter/issues/114756
 
 flutter_hooksにも以下のissueを起票してみました。
 
