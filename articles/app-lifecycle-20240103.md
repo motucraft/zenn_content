@@ -191,3 +191,29 @@ Firestoreのsnapshotを利用しているとき、アプリがバックグラウ
 # 5. 追記
 
 hooksが使えるのであれば、[useAppLifecycleState](https://pub.dev/documentation/flutter_hooks/latest/flutter_hooks/useAppLifecycleState.html)を使っても良いですね。
+
+# 6. さらに追記
+
+Androidの場合、`AppLifecycleState.paused`が検出できないという問題に気づきました。
+
+参考：https://github.com/flutter/flutter/issues/114756
+
+flutter_hooksにも以下のissueを起票してみました。
+
+https://github.com/rrousselGit/flutter_hooks/issues/409
+
+![img.png](img.png)
+
+Remiさんから上記のコメントがありましたので、[useOnAppLifecycleStateChange](https://pub.dev/documentation/flutter_hooks/latest/flutter_hooks/useOnAppLifecycleStateChange.html)を利用することにしました。
+
+```dart
+    useOnAppLifecycleStateChange((_, current) {
+      switch (current) {
+        case AppLifecycleState.resumed || AppLifecycleState.inactive:
+          FirebaseFirestore.instance.enableNetwork();
+          break;
+        default:
+          FirebaseFirestore.instance.disableNetwork();
+      }
+    });
+```
