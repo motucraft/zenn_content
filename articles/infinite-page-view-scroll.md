@@ -100,6 +100,9 @@ class InfinitePageViewScroll extends HookWidget {
 }
 ```
 
+`final itemCount = urls.length + 2;` にて、前後にダミーの要素を配置するようにしました。
+そして、ダミーの要素に近づいたら`jumpToPage`で実際のindexのページへジャンプさせています。
+
 # 4. おわりに
 
 当初は`PageScrollPhysics`の`_getTargetPixels`をカスタムすればいけそうだと思ったのですが、`ScrollPhysics`をかなり深く理解しないと無理だなと思いました。
