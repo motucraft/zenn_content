@@ -1,9 +1,9 @@
 ---
 title: "【Flutter】PageViewを使ってなるべく簡単に無限循環スクロールを模倣する"
-emoji: "😎"
+emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "PageView"]
-published: false
+published: true
 ---
 
 # 1. はじめに
