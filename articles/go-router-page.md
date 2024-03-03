@@ -25,7 +25,7 @@ https://croxx5f.hashnode.dev/adding-modal-routes-to-your-gorouter
 
 以下のような挙動になります。URLの変化も確認できると思います。
 
-![go_router.gif](..%2F..%2F..%2F..%2FDesktop%2Fgo_router.gif)
+![go_router](https://github.com/motucraft/zenn_content/assets/35750184/7002af0c-cae4-480d-8b23-4c756a797e10)
 
 # 3. コード
 
