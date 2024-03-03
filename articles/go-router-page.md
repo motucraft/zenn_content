@@ -3,7 +3,7 @@ title: "【Flutter】go_routerで宣言的にダイアログやボトムシー�
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "go_router"]
-published: false
+published: true
 ---
 
 # 1. はじめに
