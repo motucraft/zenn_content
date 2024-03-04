@@ -12,8 +12,7 @@ published: true
 
 https://zenn.dev/motu2119/articles/go-router-page
 
-ダイアログやボトムシートを宣言的にオープンできるようになると、deep linkに対応できるようになると思いますので、
-今回はFCMのプッシュ通知を開いたときにダイアログやボトムシートへディープリンクさせてみたいと思います。
+ダイアログやボトムシートを宣言的にオープンできるようになると、deep linkに対応できるようになると思いますので、今回はFCMのプッシュ通知を開いたときにダイアログやボトムシートへディープリンクさせてみたいと思います。
 
 # 2. 挙動
 
@@ -28,7 +27,7 @@ https://zenn.dev/motu2119/articles/go-router-page
 
 FCMについては色々なところで解説されていますし、[Firebaseのドキュメント](https://firebase.google.com/docs/cloud-messaging/flutter/client?hl=ja)や[firebase_messagingのexample](https://github.com/firebase/flutterfire/tree/master/packages/firebase_messaging/firebase_messaging/example)を参照すれば、それほど苦労なく実装できると思います。
 
-([flutter_hooks](https://pub.dev/packages/flutter_hooks)を利用していますが、本件には特に関係ありません。Flutter Webの対応は行っていません。)
+(以下のコードでは[flutter_hooks](https://pub.dev/packages/flutter_hooks)を利用していますが、本件には特に関係ありません。Flutter Webの対応は行っていません。)
 ```dart
 import 'dart:convert';
 import 'dart:developer';
