@@ -27,7 +27,7 @@ ElevatedButton(
 )
 ```
 
-![](https://storage.googleapis.com/zenn-user-upload/18f68529c6b3-20240307.png =50x)
+![](https://storage.googleapis.com/zenn-user-upload/18f68529c6b3-20240307.png =200x)
 
 でもこれ、カスタマイズできないんですよね。`Powered by Flutter`が必ず表示されますし。
 そこで、ライセンスページを自前で用意して見ようと思います。
@@ -36,7 +36,7 @@ ElevatedButton(
 
 色などは適当ですが、このように表示できました。
 
-![](https://storage.googleapis.com/zenn-user-upload/7270f6eb1155-20240307.png =50x)
+![](https://storage.googleapis.com/zenn-user-upload/7270f6eb1155-20240307.png =200x)
 
 # 3. コード
 
