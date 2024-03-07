@@ -3,7 +3,7 @@ title: "【Flutter】LicenseRegistryを使って自前でライセンスペー�
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "showLicensePage"]
-published: false
+published: true
 ---
 
 # 1. はじめに
