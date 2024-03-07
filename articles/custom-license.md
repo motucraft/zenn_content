@@ -36,7 +36,9 @@ ElevatedButton(
 
 色などは適当ですが、このように表示できました。
 
-![](https://storage.googleapis.com/zenn-user-upload/7270f6eb1155-20240307.png =200x)
+||     |
+|:---:|:---:|
+|![](https://storage.googleapis.com/zenn-user-upload/7270f6eb1155-20240307.png)|![](https://storage.googleapis.com/zenn-user-upload/a33cd7d01b2c-20240307.gif)|
 
 # 3. コード
 
