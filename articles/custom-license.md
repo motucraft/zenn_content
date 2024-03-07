@@ -30,7 +30,7 @@ ElevatedButton(
 ![](https://storage.googleapis.com/zenn-user-upload/18f68529c6b3-20240307.png =200x)
 
 でもこれ、カスタマイズできないんですよね。`Powered by Flutter`が必ず表示されますし。
-そこで、ライセンスページを自前で用意して見ようと思います。
+そこで、ライセンスページを自前で用意してみようと思います。
 
 # 2. 例
 
