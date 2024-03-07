@@ -205,7 +205,7 @@ class LicenseNotifier extends _$LicenseNotifier {
 
 ここではRiverpodを利用していますが、StatefulWidgetで`LicenseRegistry.licenses.listen((event) { })`で処理しても良いと思います。
 
-パッケージごとにライセンスをズラッと表示したかったため、元の`List<LicenseEntry>`からパッケージ名をkey、`List<LicenseEntry>`というMapを用意し、あとは[PackageLicensePage](https://github.com/flutter/flutter/blob/3.19.2/packages/flutter/lib/src/material/about.dart#L770)と同じような処理をしただけです。
+パッケージごとにライセンスをズラッと表示したかったため、元の`List<LicenseEntry>`からパッケージ名をkey、該当する`List<LicenseEntry>`をvalueというMapを用意し、あとは[PackageLicensePage](https://github.com/flutter/flutter/blob/3.19.2/packages/flutter/lib/src/material/about.dart#L770)と同じような処理をしただけです。
 paragraphはインデントの判定ができるようで、Apacheライセンスのように中央表示するようなケースは`if (paragraph.indent == LicenseParagraph.centeredIndent)`のように判定できるようでした。
 
 # 4. おわりに
