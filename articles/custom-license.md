@@ -47,7 +47,7 @@ ElevatedButton(
 ドキュメントにこのように記載されていますので、[LicenseRegistry](https://api.flutter.dev/flutter/foundation/LicenseRegistry-class.html)を使用します。
 
 パッケージ名を入手するのは簡単そうなのですが、paragraphをどのように処理すれば良いのか悩みました。インデントも考慮しないと上記のような見た目にはなりません。
-そこで、[showLicensePage](https://api.flutter.dev/flutter/material/showLicensePage.html)の中のコードを読んでいくと、[about.dart のこの辺り（_PackageLicensePage）](https://github.com/flutter/flutter/blob/3.19.2/packages/flutter/lib/src/material/about.dart#L770)が参考になりそうだなと思いました。その周辺を参考にしつつ、以下のように実装しました。
+そこで、[showLicensePage](https://api.flutter.dev/flutter/material/showLicensePage.html)の中のコードを読んでいくと、[about.dart のこの辺り（_PackageLicensePage）](https://github.com/flutter/flutter/blob/3.19.2/packages/flutter/lib/src/material/about.dart#L770)が参考になりそうだということで、その周辺を参考にしつつ以下のように実装しました。
 
 ```dart
 import 'package:collection/collection.dart';
