@@ -3,7 +3,7 @@ title: "【Flutter】go_routerとFCMのプッシュ通知でディープリン�
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "deep linking", "go_router", "firebase_messaging", "FCM"]
-published: true
+published: false
 ---
 
 # 1. はじめに
