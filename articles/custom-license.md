@@ -213,3 +213,10 @@ paragraphはインデントの判定ができるようで、Apacheライセン�
 ライセンスページなんて誰も見ませんよね。(でも実は私はたまに見ています。あ、このアプリこのパッケージ使ってる！！とか)
 
 アプリのユーザは誰もほぼ気にしないところですから、SDK標準のAPIを利用するのが簡単で良いですね。それでもカスタマイズしたいという場合は、このような方法になりそうです。
+
+# 5. 追記
+
+[LicenseEntryWithLineBreaks](https://api.flutter.dev/flutter/foundation/LicenseEntryWithLineBreaks-class.html)に問題がありましたので、以下のissueを起票しています。
+2024/3/22現在、P2にてラベリングされています。`LicenseEntryWithLineBreaks`は、個別でライセンスをロードさせたいときに使用することになると思います。
+
+https://github.com/flutter/flutter/issues/145453
