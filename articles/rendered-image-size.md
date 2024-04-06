@@ -1,5 +1,5 @@
 ---
-title: "【Flutter】レンダリング後のImage.asset画像のサイズが取れなくてハマる"
+title: "【Flutter】レンダリング後のImage.asset画像の描画サイズが取れなくてハマる"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart"]
