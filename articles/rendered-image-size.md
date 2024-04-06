@@ -178,7 +178,7 @@ class _RenderedImageSizeState extends State<RenderedImageSize> {
 
 レンダリングされたWidgetのサイズが表示されています。
 
-![](https://storage.googleapis.com/zenn-user-upload/17cac5fa827b-20240406.png =500px)
+![](https://storage.googleapis.com/zenn-user-upload/17cac5fa827b-20240406.png =500x)
 
 # 4. OK (with flutter_hooks)
 
@@ -248,7 +248,7 @@ class RenderedImageSize extends HookWidget {
 
 こちらも問題なくレンダリング後のWidgetサイズを取得できました。
 
-![](https://storage.googleapis.com/zenn-user-upload/800e42b5b74c-20240406.png =500px)
+![](https://storage.googleapis.com/zenn-user-upload/800e42b5b74c-20240406.png =500x)
 
 # 5. おわりに
 
