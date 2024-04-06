@@ -3,7 +3,7 @@ title: "【Flutter】レンダリング後のImage.asset画像のサイズが取
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart"]
-published: false
+published: true
 ---
 
 # 1. はじめに
@@ -112,8 +112,6 @@ class _RenderedImageSizeState extends State<RenderedImageSize> {
 `ImageFrameBuilder`を使って、コールバック内でサイズを取得するように変更すると、上手くサイズが取得できました。
 
 ```dart
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -186,7 +184,6 @@ class _RenderedImageSizeState extends State<RenderedImageSize> {
 [flutter_hooks](https://pub.dev/packages/flutter_hooks)を使う場合はこのような感じでしょうか。やっていることは同じです。
 
 ```dart
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -254,4 +251,4 @@ class RenderedImageSize extends HookWidget {
 # 5. おわりに
 
 未だにこういう問題にハマるのは、結局表面的な理解しかできていないからなんですよね。
-もっと内部の挙動を把握しないと。やっぱり、SDK内部のコード読めってことですよね...
+もっと内部の挙動を把握しないと。やっぱり、SDK内部のコード読めよってことですよね...
