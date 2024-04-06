@@ -207,8 +207,6 @@ class RenderedImageSize extends HookWidget {
     final imageKey = useMemoized(() => GlobalKey());
     final imageSize = useState<Size?>(null);
 
-    Future.delayed(const Duration(milliseconds: 500), () {});
-
     return Scaffold(
       appBar: AppBar(
         title: const FittedBox(
