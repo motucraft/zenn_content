@@ -13,7 +13,7 @@ published: false
 StackOverflowです。同じ問題にハマっている人がいました。
 https://stackoverflow.com/questions/68880220/flutter-image-asset-actual-size-issue
 
-# 2. NGケース
+# 2. NG
 
 最初は、フレームの描画処理が終わってからサイズを取れば良いので`WidgetsBinding.instance.addPostFrameCallback`を使えば良いのでは？と考えました。
 しかし、以下のコードでは正しくサイズが取れません。
@@ -99,6 +99,7 @@ class _RenderedImageSizeState extends State<RenderedImageSize> {
 ![](https://storage.googleapis.com/zenn-user-upload/6b156528cb38-20240406.png =200x)
 
 画像フレームがまだレンダリングされていないのに、その前にサイズを取ってしまうからでしょうか？
+`Future.delayed(const Duration(milliseconds: 500), () {})`みたいなことをして、サイズ取得の処理を遅延させれば上手くいきますがそんなことはしたくありません。どれだけ遅延させれば良いかも分かりませんし。
 
 [ImageFrameBuilder](https://api.flutter.dev/flutter/widgets/ImageFrameBuilder.html)には以下の記述があります。
 
