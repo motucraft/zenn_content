@@ -182,7 +182,7 @@ class _RenderedImageSizeState extends State<RenderedImageSize> {
 
 # 4. OK (with flutter_hooks)
 
-[flutter_hooks](https://pub.dev/packages/flutter_hooks)を使う場合はこのような感じでしょうか。
+[flutter_hooks](https://pub.dev/packages/flutter_hooks)を使う場合はこのような感じでしょうか。やっていることは同じです。
 
 ```dart
 import 'dart:async';
