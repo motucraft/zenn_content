@@ -150,13 +150,13 @@ class _RenderedImageSizeState extends State<RenderedImageSize> {
             'assets/image.webp',
             frameBuilder: (_, child, frame, __) {
               if (frame != null) {
-                final renderBox =
-                _imageKey.currentContext?.findRenderObject() as RenderBox?;
-                if (_imageSize == null && renderBox != null) {
-                  Future.microtask(() {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final renderBox = _imageKey.currentContext?.findRenderObject()
+                  as RenderBox?;
+                  if (_imageSize == null && renderBox != null) {
                     setState(() => _imageSize = renderBox.size);
-                  });
-                }
+                  }
+                });
               }
               return child;
             },
@@ -219,11 +219,13 @@ class RenderedImageSize extends HookWidget {
             'assets/image.webp',
             frameBuilder: (_, child, frame, __) {
               if (frame != null) {
-                final renderBox =
-                imageKey.currentContext?.findRenderObject() as RenderBox?;
-                if (imageSize.value == null && renderBox != null) {
-                  Future.microtask(() => imageSize.value = renderBox.size);
-                }
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final renderBox =
+                      imageKey.currentContext?.findRenderObject() as RenderBox?;
+                  if (imageSize.value == null && renderBox != null) {
+                    imageSize.value = renderBox.size;
+                  }
+                });
               }
               return child;
             },
