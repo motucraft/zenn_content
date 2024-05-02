@@ -6,7 +6,7 @@ topics: ["flutter", "deep linking", "go_router"]
 published: true
 ---
 
-# 1. はじめに
+# 1 はじめに
 
 https://zenn.dev/motu2119/articles/go-router-page
 
@@ -17,11 +17,11 @@ https://zenn.dev/motu2119/articles/go-router-page
 記事の中でこのように書いていましたので、今回はdeeplinkを試そうと思います。
 
 カスタムスキームは使用しません。Androidで言うapp link、iOSで言うuniversal linkです。
-[3. 参考](#3.-参考)のドキュメントにも以下のような記載があります。
+[3 参考](#3-参考)のドキュメントにも以下のような記載があります。
 - `A app link is a type of deep link that uses http or https and is exclusive to Android devices.`
 - `A universal link is a type of deep link that uses http or https and is exclusive to Apple devices.`
 
-# 2. 挙動
+# 2 挙動
 
 以下のような挙動になります。iOSは実機、Androidはエミュレータにて確認しました。
 それぞれメモ帳アプリへdeeplinkのURLを記載し、そのURLをタップすることでアプリを起動させています。
@@ -32,7 +32,7 @@ https://zenn.dev/motu2119/articles/go-router-page
 
 今回は他アプリ（メモ帳アプリ）からのdeeplinkの挙動を確認しました。URLをWebへ埋め込むなどすれば、ブラウザからアプリの特定ページへリンクすることもできます。
 
-# 3. 参考
+# 3 参考
 
 Flutter公式ドキュメントを参考にしていきます。
 
@@ -40,13 +40,13 @@ Flutter公式ドキュメントを参考にしていきます。
 - [Set up app links for Android](https://docs.flutter.dev/cookbook/navigation/set-up-app-links)
 - [Set up universal links for iOS](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links)
 
-# 4. コード
+# 4 コード
 
 Flutterのコードとしては、[【Flutter】go_routerで宣言的にダイアログやボトムシートをオープンする](https://zenn.dev/motu2119/articles/go-router-page)に記載したコードと全く同じです。使用したパッケージは、[go_router](https://pub.dev/packages/go_router)のみです。コードはGitHubにも置いています。
 
 https://github.com/motucraft/deeplink
 
-# 5. Android Settings
+# 5 Android Settings
 
 [Set up app links for Android](https://docs.flutter.dev/cookbook/navigation/set-up-app-links)に従って設定していきます。
 既に実装はできていますので、[Customize a Flutter application](https://docs.flutter.dev/cookbook/navigation/set-up-app-links#1-customize-a-flutter-application)はスキップします。
@@ -113,7 +113,7 @@ adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BRO
 
 Android用の設定は以上です。
 
-# 6. iOS Settings
+# 6 iOS Settings
 
 [Set up universal links for iOS](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links)に従って設定していきます。
 既に実装はできていますので、[Customize a Flutter application](https://docs.flutter.dev/cookbook/navigation/set-up-app-links#1-customize-a-flutter-application)はスキップします。
