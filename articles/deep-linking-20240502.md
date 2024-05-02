@@ -3,7 +3,7 @@ title: "【Flutter】ディープリンクでダイアログとボトムシー�
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "deep linking", "go_router"]
-published: false
+published: true
 ---
 
 # 1. はじめに
