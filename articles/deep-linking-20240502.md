@@ -17,7 +17,7 @@ https://zenn.dev/motu2119/articles/go-router-page
 記事の中でこのように書いていましたので、今回はdeeplinkを試そうと思います。
 
 カスタムスキームは使用しません。Androidで言うapp link、iOSで言うuniversal linkです。
-[3. 参考](#3-参考)のドキュメントにも以下のような記載があります。
+[3. 参考](#3.-参考)のドキュメントにも以下のような記載があります。
 - `A app link is a type of deep link that uses http or https and is exclusive to Android devices.`
 - `A universal link is a type of deep link that uses http or https and is exclusive to Apple devices.`
 
