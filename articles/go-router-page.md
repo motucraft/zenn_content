@@ -247,3 +247,8 @@ context.goNamed(RoutingConfig.bottomSheet.name)
 ダイアログやボトムシートを宣言的にオープンできるようになると、deep linkに対応できるようになると思います。
 例えばFCMのメッセージを受けて該当するお知らせを表示するなど、外部からアプリの特定のダイアログやボトムシートを出したいようなケースに対応できるかなと思います。
 
+# 5. 追記
+
+上記のコードを元に、deeplinkの記事を記載しました。
+
+https://zenn.dev/motu2119/articles/deep-linking-20240502
