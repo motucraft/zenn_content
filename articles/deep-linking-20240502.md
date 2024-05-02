@@ -18,13 +18,14 @@ https://zenn.dev/motu2119/articles/go-router-page
 
 カスタムスキームは使用しません。Androidで言うapp link、iOSで言うuniversal linkです。
 [3 参考](#3-参考)のドキュメントにも以下のような記載があります。
-- `A app link is a type of deep link that uses http or https and is exclusive to Android devices.`
-- `A universal link is a type of deep link that uses http or https and is exclusive to Apple devices.`
+- A app link is a type of deep link that uses http or https and is exclusive to Android devices.
+- A universal link is a type of deep link that uses http or https and is exclusive to Apple devices.
 
 # 2 挙動
 
 以下のような挙動になります。iOSは実機、Androidはエミュレータにて確認しました。
 それぞれメモ帳アプリへdeeplinkのURLを記載し、そのURLをタップすることでアプリを起動させています。
+（動画では実機の方はメモ帳をタップした瞬間が分かりづらいですね。）
 
 |                              iOS (Physical Device)<br/>iPhone 15 Pro                               |                                Android (Emulator)<br/>Pixel8 Pro API 34                                |
 |:--------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------:|
