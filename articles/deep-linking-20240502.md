@@ -166,5 +166,9 @@ iOS用の設定は以上です。
 
 # 7. おわりに
 
-Flutter公式ドキュメントのとおりに対応していっただけですが、特に迷うこともなく[go_router](https://pub.dev/packages/go_router)のみでdeeplinkの挙動を確認できました。
-宣言的にダイアログやボトムシートをオープンするようにしておくことで、deeplinkに対応しやすくなります。
+Flutter公式ドキュメントのとおりに対応していっただけですが、特に迷うこともなく[go_router](https://pub.dev/packages/go_router)のみでdeeplinkの挙動を確認できました。宣言的にダイアログやボトムシートをオープンするようにしておくことで、deeplinkに対応しやすくなります。
+他にdeeplink関連で試してみたいと思っていることとしては、以下の三つほどあります。また気が向いたらお試ししてみようと思います。
+
+- FCMプッシュ通知をタップしてdeeplink
+- WebView内からdeeplink
+- [app_links](https://pub.dev/packages/app_links) パッケージ
