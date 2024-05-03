@@ -116,7 +116,7 @@ Android用の設定は以上です。
 # 6 iOS Settings
 
 [Set up universal links for iOS](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links)に従って設定していきます。
-既に実装はできていますので、[Customize a Flutter application](https://docs.flutter.dev/cookbook/navigation/set-up-app-links#1-customize-a-flutter-application)はスキップします。
+既に実装はできていますので、[Customize a Flutter application](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links#1-customize-a-flutter-application)はスキップします。
 
 ## 6.1 [Adjust iOS build settings](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links#2-adjust-ios-build-settings)
 
