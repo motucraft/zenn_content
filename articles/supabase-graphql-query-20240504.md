@@ -10,8 +10,7 @@ published: false
 
 https://zenn.dev/motu2119/articles/supabase-select-countries-20240504
 
-こちらの記事の続きです。今回は、前回作成したcountriesテーブルのデータをGraphQLでQueryしたいと思います。
-GraphQLのクライアントには、以下のferryを利用します。
+こちらの記事の続きです。今回は、前回作成したcountriesテーブルのデータをGraphQLでQueryしたいと思います。GraphQLのクライアントには、以下のferryを利用します。
 
 https://pub.dev/packages/ferry
 
@@ -27,7 +26,7 @@ https://ferrygraphql.com/docs/
 
 ## 3.1 スキーマの入手
 
-クライアントを実装するために、まずはGraphQLのスキーマを入手します。色々方法はあると思いますが、私はApolloのRover CLIを利用しました。npmでグローバルインストールしておきます。
+クライアントを実装するために、まずはGraphQLのスキーマを入手します。方法はいくつかあると思いますが、私はApolloのRover CLIを利用しました。npmでグローバルインストールしておきます。
 https://www.apollographql.com/docs/rover/getting-started#global-install
 
 ```shell
@@ -358,7 +357,13 @@ query Countries($first: Int) {
 
 ![](https://storage.googleapis.com/zenn-user-upload/fc78e7b8e1aa-20240504.png)
 
-## 3.3 自動生成
+## 3.3 クエリをお試し
+
+クエリが実行できるか確認してみます。Supabase ConsoleのAPI Docsから確認できます。レスポンスが取れていますね。
+
+![](https://storage.googleapis.com/zenn-user-upload/d512b6c8f65b-20240504.png)
+
+## 3.4 自動生成
 
 あとは自動生成です。いつものように`build_runner`を実行するのですが、 その前に`build.yaml`が必要ですので、[Build Generated Classes](https://ferrygraphql.com/docs/codegen#build-generated-classes)を参照して設定しておきます。
 私の場合は以下のように設定しておきました。まだ使用しないのですが、後に使うかも？ということでDateTimeのシリアライザ (date_time_serializer.dart) も設定しておきました。
