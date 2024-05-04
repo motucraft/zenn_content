@@ -29,7 +29,7 @@ https://github.com/marcglasberg/indexed_list_view/issues/36
 
 コードはこちら。
 
-https://github.com/motucraft/descending_app_bar
+https://github.com/motucraft/infinite_page_view_scroll
 
 これだけです（hooksをを使用しています）。
 
