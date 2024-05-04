@@ -58,3 +58,5 @@ class CountriesNotifier extends _$CountriesNotifier {
 # 5. おわりに
 
 まずは単純にselectして応答を表示することができました。次はGraphQLでQueryしてみたいと思います。
+
+https://zenn.dev/motu2119/articles/supabase-graphql-query-20240504
