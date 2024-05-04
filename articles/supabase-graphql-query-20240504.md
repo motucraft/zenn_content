@@ -475,11 +475,14 @@ class ApiKeyClient extends http.BaseClient {
 
 `clientProvider`でferryのClientインスタンスを生成しています。Clientインスタンスは生き続ければ良いため、`keepAlive: true`としています。`FetchPolicy.NetworkOnly`を指定してferryのキャシュを使用しないようにしています。この辺りはキャッシュ戦略次第かと思います。
 
-クエリする際にはSupabaseのAPIキーを指定しないと、`401 Unauthorized`ということになりますので、`ApiKeyClient`クラスにてキーを付与しています。
-ANONキーで良いみたいです。（私はSupabase初心者なので、service_roleのキーとの違いがよくわかっていません...調べねば）
+クエリする際にはSupabaseのAPIキーを指定しないと、`401 Unauthorized`ということになりますので、`ApiKeyClient`クラスにてキーを付与しています。ANONキーで良いみたいです。（私はSupabase初心者なので、service_roleのキーとの違いがよくわかっていません...調べねば）
 
-そして、この記事のタイトルにある`and Riverpod 3.0`についてです。Riverpod 3.0ではGenericsが利用可能となっています。（現時点ではdevバージョン）
-ここでGenericsを使用しています。今回は単一のクエリしか使用しませんが、このようにGenericsのProviderを用意しておけば、他のクエリも同様にこのProviderを使用することができます。Genericsのおかげで、似て非なるProviderを多数生み出す必要がなくなります。
+そして、この記事のタイトルにある「and Riverpod 3.0」についてです。Riverpod 3.0ではGenericsが利用可能となっています。
+Riverpod 3.0は、現時点ではdevバージョンです（[3.0.0-dev.3](https://pub.dev/packages/riverpod/versions/3.0.0-dev.3)）。devブランチは更新されているのですがpublishされておらず数ヶ月devバージョンの更新がありません。そのため、Discordでもコメントしてみました。Remiさん次第ですね。
+
+https://discord.com/channels/765557403865186374/765557404766830614/1235902253303332919
+
+以下でGenericsを使用しています。今回は単一のクエリしか使用しませんが、このようにGenericsのProviderを用意しておけば、他のクエリも同様にこのProviderを使用することができます。Genericsのおかげで、似て非なるProviderを多数生み出す必要がなくなります。
 
 ```dart
 @riverpod
