@@ -366,7 +366,7 @@ query Countries($first: Int) {
 ## 3.4 自動生成
 
 あとは自動生成です。いつものように`build_runner`を実行するのですが、 その前に`build.yaml`が必要ですので、[Build Generated Classes](https://ferrygraphql.com/docs/codegen#build-generated-classes)を参照して設定しておきます。
-私の場合は以下のように設定しておきました。まだ使用しないのですが、後に使うかも？ということでDateTimeのシリアライザ (date_time_serializer.dart) も設定しておきました。
+私の場合は以下のように設定しました。まだ使用しないのですが、後に使うかも？ということでDateTimeのシリアライザ (date_time_serializer.dart) も設定しておきました。
 
 ```yaml
 targets:
