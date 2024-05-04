@@ -473,7 +473,7 @@ class ApiKeyClient extends http.BaseClient {
 }
 ```
 
-`clientProvider`でferryのClientインスタンスを生成しています。Clientインスタンスは生き続ければ良いため、`keepAlive: true`としています。
+`clientProvider`でferryのClientインスタンスを生成しています。Clientインスタンスは生き続ければ良いため、`keepAlive: true`としています。`FetchPolicy.NetworkOnly`を指定してferryのキャシュを使用しないようにしています。この辺りはキャッシュ戦略次第かと思います。
 
 クエリする際にはSupabaseのAPIキーを指定しないと、`401 Unauthorized`ということになりますので、`ApiKeyClient`クラスにてキーを付与しています。
 ANONキーで良いみたいです。（私はSupabase初心者なので、service_roleのキーとの違いがよくわかっていません...調べねば）
