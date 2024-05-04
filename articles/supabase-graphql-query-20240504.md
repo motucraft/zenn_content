@@ -477,8 +477,7 @@ class ApiKeyClient extends http.BaseClient {
 
 クエリする際にはSupabaseのAPIキーを指定しないと、`401 Unauthorized`ということになりますので、`ApiKeyClient`クラスにてキーを付与しています。ANONキーで良いみたいです。（私はSupabase初心者なので、service_roleのキーとの違いがよくわかっていません...調べねば）
 
-そして、この記事のタイトルにある「and Riverpod 3.0」についてです。Riverpod 3.0ではGenericsが利用可能となっています。
-Riverpod 3.0は、現時点ではdevバージョンです（[3.0.0-dev.3](https://pub.dev/packages/riverpod/versions/3.0.0-dev.3)）。devブランチは更新されているのですがpublishされておらず数ヶ月devバージョンの更新がありません。そのため、Discordでもコメントしてみました。Remiさん次第ですね。
+そして、この記事のタイトルにある「and Riverpod 3.0」についてです。Riverpod 3.0ではGenericsが利用可能となっています。Riverpod 3.0は、現時点ではdevバージョンです（[3.0.0-dev.3](https://pub.dev/packages/riverpod/versions/3.0.0-dev.3)）。devブランチは更新されているのですがpublishはされておらず、数ヶ月間`3.0.0-dev.3`のまま更新がありません。そのため、Discordでもコメントしてみました。Remiさん次第ですね（3.0のstableはまだ先のようです。今年中ぐらいでしょうか？）。
 
 https://discord.com/channels/765557403865186374/765557404766830614/1235902253303332919
 
