@@ -2,8 +2,8 @@
 title: "【Supabase】GraphQL Query (with Ferry and Riverpod 3.0)"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["flutter", "supabase", "GraphQL"]
-published: false
+topics: ["flutter", "supabase", "GraphQL", "ferry", "riverpod"]
+published: true
 ---
 
 # 1. はじめに
@@ -519,4 +519,5 @@ Supabaseのデフォルトでは`The default page size for collections is 30 ent
 # 6. おわりに
 
 SupabaseにてGraphQLを利用しクエリすることができました。`builder.first = 20`としたため、全件表示することはできていません。
-そこで、次回は[infinite_scroll_pagination](https://pub.dev/packages/infinite_scroll_pagination)を利用してGraphQLのQueryを行いつつ無限スクロールさせてみようと思います。
+
+そこで、次回はGraphQLでQueryしつつ、[infinite_scroll_pagination](https://pub.dev/packages/infinite_scroll_pagination)を利用して無限スクロールさせてみようと思います。
