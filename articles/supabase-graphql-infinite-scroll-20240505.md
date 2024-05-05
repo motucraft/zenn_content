@@ -2,7 +2,7 @@
 title: "【Supabase】GraphQLのクエリと無限スクロール (with infinite_scroll_pagination)"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["flutter", "supabase", "GraphQL", "ferry", "infinite_scroll_pagination"]
+topics: ["flutter", "supabase", "GraphQL", "ferry", "flutter_hooks"]
 published: false
 ---
 
