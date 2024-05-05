@@ -3,25 +3,24 @@ title: "【Supabase】GraphQLのクエリと無限スクロール (with infinite
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "supabase", "GraphQL", "ferry", "flutter_hooks"]
-published: false
+published: true
 ---
 
 # 1. はじめに
 
 https://zenn.dev/motu2119/articles/supabase-graphql-query-20240504
 
-こちらの記事の続きです。
-前回は、GraphQLクライアント [ferry](https://pub.dev/packages/ferry) を利用してクエリすることを行いました。
+こちらの記事の続きです。 前回は、GraphQLクライアント [ferry](https://pub.dev/packages/ferry) を利用してクエリすることを行いました。
 
-ただし、以下のSupabase公式ドキュメントにあるとおり、
+ただ、以下のSupabase公式ドキュメントにあるとおり、
 
 https://supabase.com/docs/guides/graphql/configuration#max-rows
 
 > The default page size for collections is 30 entries. To adjust the number of entries on each page, set a max_rows directive on the relevant schema entity.
 
-ということですので、前回の記事では全件取得できていませんでした。
+ということで、前回の記事ではcountriesテーブルのデータを全件取得できていませんでした。
 
-`max_rows`を増やせば全件取得することもできますが、それは非効率ですので、ここではよく見かける無限スクロールを実装してみようと思います。GraphQLでクエリしつつ、[infinite_scroll_pagination](https://pub.dev/packages/infinite_scroll_pagination)を利用して無限スクロールさせてみます。
+`max_rows`を増やせば全件取得することもできますが、今回はアプリでよく見かける無限スクロールを実装してみようと思います。GraphQLでクエリしつつ、[infinite_scroll_pagination](https://pub.dev/packages/infinite_scroll_pagination)を利用して無限スクロールさせてみます。
 
 # 2. 挙動
 
@@ -55,7 +54,7 @@ https://github.com/motucraft/supabase_playground/blob/main/lib/hooks/use_paging_
   }, [onPageRequest]);
 ```
 
-この`useEffect`フックにて、ページリクエストリスナーを設定し、ページリクエストがあるたびに指定されたonPageRequestコールバックを呼び出します。リスナーの追加とクリーンアップを行っています。
+この`useEffect`フックにて、ページリクエストリスナーを設定し、ページリクエストがあるたびに指定されたonPageRequestコールバックを呼び出しています。リスナーの追加とクリーンアップを行っています。
 
 # 4.2 ページングしながらGraphQLクエリ
 
@@ -78,7 +77,7 @@ https://supabase.com/docs/guides/graphql/api#pagination
 
 # 5. DevToolsでレスポンスを確認
 
-クエリは4回発行されました。countriesテーブルには100レコード存在していますので想定どおりです。4回目のクエリは`"hasNextPage": false`となっており次のページが存在しないことを表しています。
+クエリは4回発行されました。countriesテーブルには100レコード存在しており、30件ずつ取得するので想定どおりです。4回目のクエリは`"hasNextPage": false`となっており次のページが存在しないことを表しています。
 
 :::details 1回目
 ```json
@@ -1077,6 +1076,6 @@ https://supabase.com/docs/guides/graphql/api#pagination
 - [riverpod](https://pub.dev/packages/riverpod/versions/3.0.0-dev.3)
 - [flutter_hooks](https://pub.dev/packages/flutter_hooks)
 
-今回クエリしてみて気づいたのですが、Supabaseのクエリはかなり応答が速いですね。使用したデータ量は少ないものの、各クエリが2ケタミリ秒程度で毎回応答されてくるので、いいね👍と思いました。ただ、速すぎてローディングの表示が確認できなかったため、あえて以下の箇所で遅延させています...
+今回クエリしてみて気づいたのですが、Supabaseのクエリはかなり応答が速いですね。使用したデータ量は少ないものの、各クエリが2ケタミリ秒程度で毎回応答されてくるので、いいね👍と思いました（初回のコネクションを張るのには多少時間を要するのでしょうか？）。ただ、速すぎてローディングの表示が確認できなかったため、あえて以下の箇所で遅延させています...
 
 https://github.com/motucraft/supabase_playground/blob/main/lib/main_infinite_scroll.dart#L70
