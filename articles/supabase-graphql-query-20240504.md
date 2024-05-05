@@ -521,3 +521,5 @@ Supabaseのデフォルトでは`The default page size for collections is 30 ent
 SupabaseにてGraphQLを利用しクエリすることができました。`builder.first = 20`としたため、全件表示することはできていません。
 
 そこで、次回はGraphQLでQueryしつつ、[infinite_scroll_pagination](https://pub.dev/packages/infinite_scroll_pagination)を利用して無限スクロールさせてみようと思います。
+
+https://zenn.dev/motu2119/articles/supabase-graphql-infinite-scroll-20240505

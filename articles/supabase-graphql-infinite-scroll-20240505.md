@@ -1079,3 +1079,7 @@ https://supabase.com/docs/guides/graphql/api#pagination
 今回クエリしてみて気づいたのですが、Supabaseのクエリはかなり応答が速いですね。使用したデータ量は少ないものの、各クエリが2ケタミリ秒程度で毎回応答されてくるので、いいね👍と思いました（初回のコネクションを張るのには多少時間を要するのでしょうか？）。ただ、速すぎてローディングの表示が確認できなかったため、あえて以下の箇所で遅延させています...
 
 https://github.com/motucraft/supabase_playground/blob/main/lib/main_infinite_scroll.dart#L70
+
+それから、現時点ではGraphQLのSubscriptionはサポートされていないようです。以下のとおり、Feature Requestは出ているようです。リアルタイム更新が必要な場合は、`Supabase.instance.client`を利用することになると思います。
+
+https://github.com/supabase/pg_graphql/issues/17
