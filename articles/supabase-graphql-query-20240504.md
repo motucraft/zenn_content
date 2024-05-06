@@ -481,6 +481,11 @@ class ApiKeyClient extends http.BaseClient {
 
 https://discord.com/channels/765557403865186374/765557404766830614/1235902253303332919
 
+(追記、Remiさんより返信あり)
+> I don't plan on publishing new dev versions for now. But it's in progress
+
+とのこと。
+
 以下でGenericsを使用しています。今回は単一のクエリしか使用しませんが、このようにGenericsのProviderを用意しておけば、他のクエリも同様にこのProviderを使用することができます。Genericsのおかげで、似て非なるProviderを多数生み出す必要がなくなります。
 
 ```dart
