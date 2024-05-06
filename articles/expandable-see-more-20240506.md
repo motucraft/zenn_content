@@ -51,6 +51,13 @@ useEffect(() {
 
 あとは、`See More`タップ、`Close`タップを[flutter_hooks](https://pub.dev/packages/flutter_hooks)の`useState`で状態管理しつつ、`AnimatedSize`や`ConstrainedBox`で表示領域を変更しているだけです。
 
+展開の必要がない場合は、以下のように`See More`が表示されないようにしています。
+
+![](https://storage.googleapis.com/zenn-user-upload/e9464f4eade1-20240506.png)
+
+
+`ExpandableSeeMore`の呼び出し元は、以下のようにCompleterとWidgetを渡しています。
+
 ```dart
 final imageLoadCompleter = Completer();
 final image = CachedNetworkImage(
@@ -75,8 +82,6 @@ return ExpandableSeeMore(
   ),
 );
 ```
-
-`ExpandableSeeMore`の呼び出し元は、上記のようにCompleterとWidgetを渡しています。
 
 # 4. おわりに
 
