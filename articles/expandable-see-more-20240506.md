@@ -20,7 +20,7 @@ https://pub.dev/packages/readmore
 
 以下のような挙動になりました。`See More`をタップすると全体を表示し、`Close`タップで閉じます。画像はネットワークから入手しています（[Lorem Picsum](https://picsum.photos/)を使用させていただきました）。
 
-![](https://storage.googleapis.com/zenn-user-upload/b9f1b7f519a0-20240506.gif =500x)
+![](https://storage.googleapis.com/zenn-user-upload/b9f1b7f519a0-20240506.gif =300x)
 
 # 3. コード
 
