@@ -1,5 +1,5 @@
 ---
-title: "【Flutter】画像を含んだWidgetを「もっと見る」で折り畳み開閉可能とする" (See More/Read More)"
+title: "【Flutter】画像を含んだWidgetを「もっと見る」で折り畳み開閉可能とする" (See More, Read More)"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "flutter_hooks", "cached_network_image"]
