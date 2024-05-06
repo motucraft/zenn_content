@@ -3,7 +3,7 @@ title: "【Flutter】画像を含んだWidgetを\"もっと見る\"で折り畳�
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "flutter_hooks", "cached_network_image"]
-published: false
+published: true
 ---
 
 # 1. はじめに
@@ -47,9 +47,9 @@ useEffect(() {
 }, [child]);
 ```
 
-このuseEffectフック内で対象Widgetのサイズを入手するようにしています。画像はネットワークから入手しますので、画像のロード完了後にサイズを取得しなければならないため、Completerを使って遅延させています。
+このuseEffectフック内で対象Widgetのサイズを入手するようにしています。画像はネットワークから入手しますので、画像のロード完了後にサイズを取得します。そのために、Completerを使って完了を待つようにしています。
 
-あとは、`See More`タップ/`Close`タップを[flutter_hooks](https://pub.dev/packages/flutter_hooks)の`useState`で状態管理しつつ、`AnimatedSize`や`ConstrainedBox`で表示領域を変更しているだけです。
+あとは、`See More`タップ、`Close`タップを[flutter_hooks](https://pub.dev/packages/flutter_hooks)の`useState`で状態管理しつつ、`AnimatedSize`や`ConstrainedBox`で表示領域を変更しているだけです。
 
 ```dart
 final imageLoadCompleter = Completer();
@@ -84,4 +84,4 @@ return ExpandableSeeMore(
 
 `See More`で展開したときにスクロール位置を調整して、当該コンテンツがトップに表示されるようにできたりすると良いかもとも思いましたが、最低限こんなところでしょうか。
 
-あとは、`ExpandableSeeMore`のchildへ例えばColumnウィジェットを渡すとおそらくオーバーフローすることになると思いますので、この辺り改善点かなと思います。
+あとは、例えばColumnウィジェットを`ExpandableSeeMore`のchildへ渡すと、おそらくオーバーフローすることになると思いますので、この辺り改善点かなと思います。
