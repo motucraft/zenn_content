@@ -3,7 +3,7 @@ title: "【Flutter】ShellRoute/StatefulShellRouteを使用中にiOSのステー
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "go_router"]
-published: false
+published: true
 ---
 
 # 1. はじめに
