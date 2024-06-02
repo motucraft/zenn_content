@@ -49,11 +49,11 @@ class PrimaryScrollController extends InheritedWidget {
 [ScrollPositionWithSingleContext](https://api.flutter.dev/flutter/widgets/ScrollPositionWithSingleContext-class.html)を継承したダミーのScrollPositionを渡しておけば、ステータスバータップ時に[animateTo](https://api.flutter.dev/flutter/widgets/ScrollPosition/animateTo.html)が呼び出されるのではないのかと。
 `animateTo`が呼び出されてさえくれれば、あとはそこをコールバックで処理してなんとかなりそうだ、と考えて模索したのが下記のコードです。
 
-- TapStatusBarNotifierクラス
+- 作成したTapStatusBarNotifierクラス
 
 https://github.com/motucraft/tap_status_bar/blob/main/lib/tap_status_bar_notifier/tap_status_bar_notifier.dart
 
-以下は、TapStatusBarNotifierを使用したコード（`onTapStatusBar`コールバック内で自前でスクロールトップさせています）
+以下は、TapStatusBarNotifierを使用したコードです。`onTapStatusBar`コールバック内で自前でスクロールトップさせています。
  
 - ShellRoute
 
@@ -63,7 +63,7 @@ https://github.com/motucraft/tap_status_bar/blob/main/lib/tap_status_bar_notifie
 
 https://github.com/motucraft/tap_status_bar/blob/main/lib/tap_status_bar_notifier/ok_stateful_shell_route.dart
 
-`matchedLocation`を確認して、現在表示中の画面であればスクロールをトップに戻しています。この確認を忘れてしまうと、StatefulShellRouteの場合は他の画面も一緒にスクロールトップされてしまうことになります。
+`matchedLocation`を確認して、現在表示中の画面であればスクロールをトップに戻しています。この確認を忘れてしまうと、StatefulShellRouteの場合は他の画面も一緒にスクロールトップされてしまうことになります。（逆に言えば、そんなこともできるのか！）
 
 ```dart
 onTapStatusBar: () {
