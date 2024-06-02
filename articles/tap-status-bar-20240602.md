@@ -2,7 +2,7 @@
 title: "【Flutter】ShellRoute/StatefulShellRouteを使用中にiOSのステータスバータップを検出する"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["flutter", "go_router""]
+topics: ["flutter", "go_router"]
 published: false
 ---
 
