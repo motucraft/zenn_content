@@ -1,0 +1,79 @@
+---
+title: "【Flutter】ShellRoute/StatefulShellRouteを使用中にiOSのステータスバータップを検出する"
+emoji: "⚾"
+type: "tech" # tech: 技術記事 / idea: アイデア
+topics: ["flutter", "go_router""]
+published: false
+---
+
+# 1. はじめに
+
+iOSにおいて、ステータスバーをタップしたときにスクロールをトップへ戻す動きがあると思います。iOSユーザは、頻繁にステータスバーをタップしてScroll To Topさせることを行うと思いますので重要なUXです。
+例えば以下のコードは、特に何も考慮せずともそのような動きになります。
+
+https://github.com/motucraft/tap_status_bar/blob/main/lib/ok_without_go_router.dart
+
+これはScaffoldがhttps://api.flutter.dev/flutter/widgets/PrimaryScrollController-class.htmlを使用して機能させていると考えれば良いと思います。
+
+> Inheriting this ScrollController can provide default behavior for scroll views in a subtree. For example, the Scaffold uses this mechanism to implement the scroll-to-top gesture on iOS.
+
+では、以下のようにgo_routerのShellRouteやStatefulShellRouteを利用した場合はどうでしょうか。
+
+- ShellRoute
+
+https://github.com/motucraft/tap_status_bar/blob/main/lib/ng_with_shell_route.dart
+
+- StatefulShellRoute
+
+https://github.com/motucraft/tap_status_bar/blob/main/lib/ng_with_stateful_shell_route.dart
+
+上記コードのように、ShellRouteやStatefulShellRouteをすると、ステータスバーのタップを検出できません。issueも起票されているようです。
+重複だと言われてクローズされるかもしれませんが、私もissue起票してみました。
+https://github.com/flutter/flutter/issues/149484
+
+# 2. 正しいのかどうか自信の無いソリューション
+
+PrimaryScrollControllerは、
+
+```dart
+class PrimaryScrollController extends InheritedWidget {
+  /// Creates a widget that associates a [ScrollController] with a subtree.
+  const PrimaryScrollController({
+```
+
+上記のように[InheritedWidget](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html)であり、
+`Creates a widget that associates a [ScrollController] with a subtree.`ということなので、
+[ScrollControllerのattachメソッド](https://api.flutter.dev/flutter/widgets/ScrollController/attach.html)を使ったらなんとか解消できないものだろうかと模索しました。
+
+`attach`の引数には[ScrollPosition](https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html)が必要です。
+[ScrollPositionWithSingleContext](https://api.flutter.dev/flutter/widgets/ScrollPositionWithSingleContext-class.html)を継承したダミーのScrollPositionを渡しておけば、ステータスバータップ時に[animateTo](https://api.flutter.dev/flutter/widgets/ScrollPosition/animateTo.html)が呼び出されるのではないのかと。
+animateToが呼び出されてくれれば、あとはそこをコールバックで処理すればなんとかならないだろうかと考えて模索したのが下記のコードです。
+
+- TapStatusBarNotifierクラス
+https://github.com/motucraft/tap_status_bar/blob/main/lib/tap_status_bar_notifier/tap_status_bar_notifier.dart
+
+- TapStatusBarNotifierを使用したコード（`onTapStatusBar`コールバック内で自前でスクロールトップさせています）
+  - ShellRoute
+    https://github.com/motucraft/tap_status_bar/blob/main/lib/tap_status_bar_notifier/ok_shell_route.dart
+  - StatefulShellRoute
+    https://github.com/motucraft/tap_status_bar/blob/main/lib/tap_status_bar_notifier/ok_stateful_shell_route.dart
+
+`matchedLocation`を確認して、現在表示中の画面であればスクロールをトップに戻しています。この確認を忘れてしまうと、StatefulShellRouteの場合は他の画面も一緒にスクロールトップされてしまうことになります。
+
+```dart
+onTapStatusBar: () {
+  if (GoRouter.of(context).routerDelegate.currentConfiguration.last.matchedLocation == '/home') {
+    _controller.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+  }
+},
+```
+
+以下は、StatefulShellRouteの挙動です。Like画面のステータスバータップにてスクロールトップしても、Home画面には影響を与えていないことを確認できます。
+
+![](https://storage.googleapis.com/zenn-user-upload/5f7b1e39a027-20240602.gif =300x)
+
+# 3. おわりに
+
+一応やりたいことはできたのですが、これが正しい対応なのか最善なのか自信が持てません。issueへのコメントを待ちたいと思います。どなたかよろしくお願い致します🙇‍♂
+
+https://github.com/flutter/flutter/issues/149484
