@@ -8,27 +8,28 @@ published: false
 
 # 1. はじめに
 
-iOSにおいて、ステータスバーをタップしたときにスクロールをトップへ戻す動きがあると思います。iOSユーザは、頻繁にステータスバーをタップしてScroll To Topさせることを行うと思いますので重要なUXです。
-例えば以下のコードは、特に何も考慮せずともそのような動きになります。
+iOSにおいて、ステータスバーをタップしたときにスクロールをトップへ戻す動きがあると思います。iOSユーザは、頻繁にステータスバーをタップしてScroll To Topさせることを行うと思いますので、UXとしても重要な点なのかなと思っています。
+
+Flutterにおいて、例えば単純な以下のコードは特に何も考慮せずともiOSのステータスバーをタップするとスクロールがトップへ戻る挙動します。
 
 https://github.com/motucraft/tap_status_bar/blob/main/lib/ok_without_go_router.dart
 
-これはScaffoldがhttps://api.flutter.dev/flutter/widgets/PrimaryScrollController-class.htmlを使用して機能させていると考えれば良いと思います。
+これはScaffoldが[PrimaryScrollController](https://api.flutter.dev/flutter/widgets/PrimaryScrollController-class.html)を使用して機能させていると考えれば良いと思います。
 
 > Inheriting this ScrollController can provide default behavior for scroll views in a subtree. For example, the Scaffold uses this mechanism to implement the scroll-to-top gesture on iOS.
 
-では、以下のようにgo_routerのShellRouteやStatefulShellRouteを利用した場合はどうでしょうか。
+では、以下のように[go_router](https://pub.dev/packages/go_router)の[ShellRoute](https://pub.dev/documentation/go_router/latest/go_router/ShellRoute-class.html)や[StatefulShellRoute](https://pub.dev/documentation/go_router/latest/go_router/StatefulShellRoute-class.html)を利用した場合はどうでしょうか。
 
-- ShellRoute
+- ShellRouteを使用したサンプル
 
 https://github.com/motucraft/tap_status_bar/blob/main/lib/ng_with_shell_route.dart
 
-- StatefulShellRoute
+- StatefulShellRouteを使用したサンプル
 
 https://github.com/motucraft/tap_status_bar/blob/main/lib/ng_with_stateful_shell_route.dart
 
-上記コードのように、ShellRouteやStatefulShellRouteをすると、ステータスバーのタップを検出できません。issueも起票されているようです。
-重複だと言われてクローズされるかもしれませんが、私もissue起票してみました。
+上記コードのようにShellRoute/StatefulShellRouteをすると、ステータスバーのタップを検出できません。
+おそらく既存のissueも存在しそうで重複だと言われてクローズされるかもしれませんが、私もissue起票してみました。
 https://github.com/flutter/flutter/issues/149484
 
 # 2. 正しいのかどうか自信の無いソリューション
