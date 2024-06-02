@@ -28,7 +28,8 @@ https://github.com/motucraft/tap_status_bar/blob/main/lib/ng_with_shell_route.da
 
 https://github.com/motucraft/tap_status_bar/blob/main/lib/ng_with_stateful_shell_route.dart
 
-上記コードのようにShellRoute/StatefulShellRouteをすると、ステータスバーのタップを検出できません。 そこで、issueを起票しました。
+上記コードのようにShellRoute/StatefulShellRouteをすると、ステータスバーをタップしてもスクロールが動きません。
+そこで、issueを起票しました。ステータスバーのタップを検出する方法があるのでしょうか？
 
 https://github.com/flutter/flutter/issues/149484
 
