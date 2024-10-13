@@ -40,11 +40,23 @@ FirebaseコンソールからData Connectを構成していきます。
 
 ![](https://storage.googleapis.com/zenn-user-upload/427829866e1b-20241013.png =300x)
 
+`Crate new Cloud SQL instance`を選びました。使用しているFirebaseのプロジェクトはSpark PlanだったのですがBlaze Planが必須のようでしたのでアップグレードしました。
+
 ![](https://storage.googleapis.com/zenn-user-upload/220ca81873c9-20241013.png =300x)
+
+Cloud SQLのインスタンスIDやデータベース名を入力していきます。
 
 ![](https://storage.googleapis.com/zenn-user-upload/0fe5e8b577f1-20241013.png =300x)
 
+サービスIDを入力してSubmitすると、
+
 ![](https://storage.googleapis.com/zenn-user-upload/fce1df53d228-20241013.png =300x)
 
+以下のようにData Connectが使用できるようになりました。
+
 ![](https://storage.googleapis.com/zenn-user-upload/766f7a98f68b-20241013.png =300x)
+
+Google CloudコンソールのCloud SQLからもデータベースが作成されたことが確認できました。
+
+![](https://storage.googleapis.com/zenn-user-upload/549766f69ad6-20241013.png =300x)
 
