@@ -39,3 +39,12 @@ https://pub.dev/packages/firebase_data_connect
 FirebaseコンソールからData Connectを構成していきます。
 
 ![](https://storage.googleapis.com/zenn-user-upload/427829866e1b-20241013.png =300x)
+
+![](https://storage.googleapis.com/zenn-user-upload/220ca81873c9-20241013.png =300x)
+
+![](https://storage.googleapis.com/zenn-user-upload/0fe5e8b577f1-20241013.png =300x)
+
+![](https://storage.googleapis.com/zenn-user-upload/fce1df53d228-20241013.png =300x)
+
+![](https://storage.googleapis.com/zenn-user-upload/766f7a98f68b-20241013.png =300x)
+
