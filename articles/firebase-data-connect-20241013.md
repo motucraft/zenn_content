@@ -1,16 +1,16 @@
 ---
-title: "【Flutter】Firebase Data Connectを試す"
+title: "【Flutter】Firebase Data Connect を試す"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "firebase", "firebase_data_connect"]
-published: false
+published: true
 ---
 
 # 1. はじめに
 
-もう半年ほど前になってしまいますが、[Google I/O 2024にてFirebase Data Connectが発表](https://firebase.blog/posts/2024/05/whats-new-at-google-io)されました。
+時間が経つのは早いもので...もう半年ほど前になってしまいますが、[Google I/O 2024にてFirebase Data Connectが発表](https://firebase.blog/posts/2024/05/whats-new-at-google-io)されました。
 Firebase Data Connectを使用すると、Cloud SQLでホストされているPostgresSQLへアプリから直接接続できるようになるということですね。
-FirestoreではなくRDBを使いたいという要望がかなり高かったのでしょうね。Supabaseへの対抗ということもあるのでしょうか。
+これは、RDBを使いたいという要望がかなり高かったのでしょうね。加えて、Supabaseへの対抗ということもあるのでしょうか。
 
 触ってみたいと思いつつなかなか時間が取れずにいましたが、1ヶ月ほど前に[firebase_data_connect](https://pub.dev/packages/firebase_data_connect)が公開されたこともあって今回お試ししてみることにしました。
 
@@ -19,8 +19,7 @@ Firebase Data ConnectはまだGAされておらず(2024年10月現在)、限定�
 
 # 2. ゴール
 
-Data Connectがサンプルとして用意しているスキーマ(Movie, MovieMetadata)を使って、以下のように映画の一覧を表示(query)します。
-また、画面右上の+アイコンにて表示されるダイアログからmutationして映画の情報を追加できるようにします。
+Data Connectがサンプルとして用意しているスキーマ(Movie, MovieMetadata)を使って、以下のように映画の一覧をqueryします。また、画面右上の + アイコンにて表示されるダイアログからmutationを実行して映画の情報を追加できるようにします。
 
 | mutation | query |
 |:--------:|:-----:|
@@ -129,7 +128,7 @@ i  Writing project information to .firebaserc...
 ```
 
 `firebase init dataconnect`を実行すると、プロジェクト直下に`dataconnect`ディレクトリ、`dataconnect-generated`ディレクトリが生成されました。
-以下はテーブルを作成してから実行した結果なので複数のdartファイルが生成されていますが、初回は`default.dart`だけが生成されました。
+`dataconnect-generated`ディレクトリについて、以下はテーブルを作成してからの結果なので複数のdartファイルが生成されているように見えますが、初回は`default.dart`だけが生成されました。
 
 ```zsh
 % tree dataconnect dataconnect-generated 
@@ -162,17 +161,13 @@ generate:
     package: default_connector
 ```
 
-この辺りにのドキュメントに説明があります。
-https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*wxtk31*_up*MQ..*_ga*NTA2OTY2NTI2LjE3Mjg4MjM0NzE.*_ga_CW55HF8NVT*MTcyODgyMzQ3MC4xLjAuMTcyODgyMzQ3MC4wLjAuMA..#generate-flutter
+[この辺りにのドキュメント](https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*wxtk31*_up*MQ..*_ga*NTA2OTY2NTI2LjE3Mjg4MjM0NzE.*_ga_CW55HF8NVT*MTcyODgyMzQ3MC4xLjAuMTcyODgyMzQ3MC4wLjAuMA..#generate-flutter) に説明があります。
 
 修正したら、`firebase dataconnect:sdk:generate`を実行しておきます。`firebase dataconnect:sdk:generate --watch`で変更を監視するという方法もあるようです。
 
 ## 4.2 schema.gql を編集してテーブルを定義する
 
-以下のように`Movie`テーブル、`MovieMetadata`テーブルを定義しました。
-
-こちらの内容です。
-https://firebase.google.com/docs/data-connect/quickstart-local#create_a_schema
+以下のように`Movie`テーブル、`MovieMetadata`テーブルを定義しました。[こちらの内容](https://firebase.google.com/docs/data-connect/quickstart-local#create_a_schema) です。
 
 ```graphql
 type Movie @table {
@@ -257,8 +252,8 @@ mutation CreateMovieMetadata(
 
 今回はお試しのため認証も行いませんので、mutationには`@auth(level: PUBLIC)`を付けています。
 
-ドキュメントはこの辺りが該当します。感覚としては、Firestoreのセキュリティールールと通ずるものがありそうだなと捉えました。まぁ、同じFirebaseのサービスですからね。
-https://firebase.google.com/docs/data-connect/authorization-and-security#authorize_client_queries_and_mutations
+[ドキュメントはこの辺り](https://firebase.google.com/docs/data-connect/authorization-and-security#authorize_client_queries_and_mutations) が該当します。感覚としては、Firestoreのセキュリティールールと通ずるものがありそうだなと捉えました。まぁ、同じFirebaseのサービスですからね。
+
 
 ## 4.4 スキーマをデプロイする
 
@@ -303,7 +298,7 @@ Project Console: https://console.firebase.google.com/project/fir-playground-5015
 
 ![](https://storage.googleapis.com/zenn-user-upload/c7e4f94703b8-20241013.png =300x)
 
-# 5. [firebase_data_connect](https://pub.dev/packages/firebase_data_connect)を利用してコードを書く。
+# 5. [firebase_data_connect](https://pub.dev/packages/firebase_data_connect) を利用してコードを書く。
 
 まだEarly Accessということもあってあまり情報が無いのですが、[Use generated Flutter SDKs](https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*1qx80yr*_up*MQ..*_ga*NzA2MzI0ODE4LjE3Mjg4MjEyMzk.*_ga_CW55HF8NVT*MTcyODgyMTIzOS4xLjAuMTcyODgyMTIzOS4wLjAuMA..)を参照しながら実装していきました。
 
@@ -322,8 +317,7 @@ Stream<QueryResult<ListMoviesData, void>> movies(MoviesRef ref) {
 }
 ```
 
-このSubscribeはリアルタイム更新ではありません。リアルタイム更新はまだ存在しないようですね。
-https://firebase.uservoice.com/forums/948424-general/suggestions/48434600-realtime-query-updates
+ただし、このSubscribeはリアルタイム更新ではありません。どうやら、[リアルタイム更新はまだ存在しない](https://firebase.uservoice.com/forums/948424-general/suggestions/48434600-realtime-query-updates) ようですね。
 
 投票しておきましょう。
 
@@ -334,7 +328,6 @@ https://firebase.uservoice.com/forums/948424-general/suggestions/48434600-realti
 Firebase Data Connectをお試しして雰囲気を掴むことができました。
 RDBで作られた既存システムをドキュメントベースのDB(Firestore)へ移行するのはとても大変だと思いますが、Cloud SQL(PostgreSQL)であれば選択肢が広がりそうです。
 
-今回のお試しの中で、リアルタイム更新と同じく「あれ？これどうするの？？」と思ったのがトランザクションです。
-ドキュメントや、[firebase_data_connectのAPI reference](https://pub.dev/documentation/firebase_data_connect/latest/)も探してみたのですが記載は無さそうでした。
+今回のお試しの中で、リアルタイム更新と同じく「あれ？これどうするの？？」と思ったのがトランザクションです。ドキュメントや、[firebase_data_connectのAPI reference](https://pub.dev/documentation/firebase_data_connect/latest/)も探してみたのですが記載は無さそうでした。
 
 この辺りはまだEAだからということでしょうか。GAされたらまた確認してみようと思います。
