@@ -60,3 +60,281 @@ Google CloudコンソールのCloud SQLからもデータベースが作成さ�
 
 ![](https://storage.googleapis.com/zenn-user-upload/549766f69ad6-20241013.png =300x)
 
+# 4. スキーマを構成する
+
+`Set up an environment with out extention for Visual Studio Code`とあります。
+拡張機能のこのあたりを使用するとセットアップできそうです。
+
+![](https://storage.googleapis.com/zenn-user-upload/197ce58c3f17-20241013.png =300x)
+
+ただ、私はVSCodeをあまり使っていない(JetBrains派なので & JetBrainsの拡張機能はまだ無さそう)ということもあって、コマンドで進めてみることにしました。
+
+## 4.1 firebase init dataconnect
+
+```zsh
+% firebase init dataconnect                                                  
+
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/osaki/github/motucraft/firebase_playground
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+
+=== Project Setup
+
+First, let's associate this project directory with a Firebase project.
+You can create multiple project aliases by running firebase use --add, 
+but for now we'll just set up a default project.
+
+i  Using project fir-playground-5015e (firebase-playground)
+
+=== Dataconnect Setup
+i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled...
+✔  dataconnect: required API firebasedataconnect.googleapis.com is enabled
+i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled...
+✔  dataconnect: required API sqladmin.googleapis.com is enabled
+i  dataconnect: ensuring required API compute.googleapis.com is enabled...
+✔  dataconnect: required API compute.googleapis.com is enabled
+? Your project already has existing services. Which would you like to set up local files for? asia-northeast1/playground-data-connect
+✔  Wrote dataconnect/dataconnect.yaml
+✔  Wrote dataconnect/schema/schema.gql
+✔  Wrote dataconnect/connector/connector.yaml
+✔  Wrote dataconnect/connector/mutations.gql
+✔  Wrote dataconnect/connector/queries.gql
+✔  Detected FLUTTER app in directory /Users/osaki/github/motucraft/firebase_playground
+? Which connector do you want set up a generated SDK for? playground-data-connect/default
+i  Wrote new config to /Users/osaki/github/motucraft/firebase_playground/dataconnect/connector/connector.yaml
+I1013 21:10:30.517916   50323 codegen.go:82] [connector "default" dartSdk] Generating sources into "/Users/osaki/github/motucraft/firebase_playground/dataconnect-generated/dart/default_connector"
+I1013 21:10:30.519871   50323 dartgen.go:575] Started Dart code generation for connector default
+I1013 21:10:30.529082   50323 generate.go:40] Generated all sources. Writing them to disk...
+I1013 21:10:30.530671   50323 collector.go:107] connector "default" dartSdk wrote into "/Users/osaki/github/motucraft/firebase_playground/dataconnect-generated/dart/default_connector"
+Generated sources: create_movie.dart [2920B] create_movie_metadata.dart [4453B] list_movies.dart [2386B] get_movie_by_id.dart [4742B] default.dart [1376B] 
+
+i  Generated SDK code for default
+✔  If you'd like to add more generated SDKs to your app your later, run firebase init dataconnect:sdk again
+
+i  Writing configuration info to firebase.json...
+i  Writing project information to .firebaserc...
+
+✔  Firebase initialization complete!
+```
+
+`firebase init dataconnect`を実行すると、プロジェクト直下に`dataconnect`ディレクトリ、`dataconnect-generated`ディレクトリが生成されました。
+以下はテーブルを作成してから実行した結果なので複数のdartファイルが生成されていますが、初回は`default.dart`だけが生成されました。
+
+```zsh
+% tree dataconnect dataconnect-generated 
+dataconnect
+├── connector
+│   ├── mutations.gql
+│   └── queries.gql
+├── dataconnect.yaml
+└── schema
+    └── schema.gql
+dataconnect-generated
+└── dart
+    └── default_connector
+        ├── create_movie.dart
+        ├── create_movie_metadata.dart
+        ├── default.dart
+        ├── get_movie_by_id.dart
+        └── list_movies.dart
+
+6 directories, 10 files
+```
+
+`dataconnect-generated`はプロジェクト直下ではなくlibディレクトリ配下に配置したいため、`connector.yaml`の`outputDir`を編集しておくのが良さそうです。
+
+```yaml
+connectorId: default
+generate:
+  dartSdk:
+    outputDir: ../../lib/dataconnect/dataconnect-generated/dart/default_connector
+    package: default_connector
+```
+
+この辺りにのドキュメントに説明があります。
+https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*wxtk31*_up*MQ..*_ga*NTA2OTY2NTI2LjE3Mjg4MjM0NzE.*_ga_CW55HF8NVT*MTcyODgyMzQ3MC4xLjAuMTcyODgyMzQ3MC4wLjAuMA..#generate-flutter
+
+修正したら、`firebase dataconnect:sdk:generate`を実行しておきます。`firebase dataconnect:sdk:generate --watch`で変更を監視するという方法もあるようです。
+
+## 4.2 schema.gql を編集してテーブルを定義する
+
+以下のように`Movie`テーブル、`MovieMetadata`テーブルを定義しました。
+
+こちらの内容です。
+https://firebase.google.com/docs/data-connect/quickstart-local#create_a_schema
+
+```graphql
+type Movie @table {
+  # The below parameter values are generated by default with @table, and can be edited manually.
+  # implies directive `@col(name: "movie_id")`, generating a column name
+  id: UUID! @default(expr: "uuidV4()")
+  title: String!
+  imageUrl: String!
+  genre: String
+}
+
+type MovieMetadata @table {
+  # @unique indicates a 1-1 relationship
+  movie: Movie! @unique
+  # movieId: UUID <- this is created by the above reference
+  rating: Float
+  releaseYear: Int
+  description: String
+}
+```
+
+## 4.3 query/mutation を定義する
+
+- queries.gql
+```graphql
+query ListMovies @auth(level: PUBLIC) {
+  movies {
+    id
+    title
+    imageUrl
+    genre
+  }
+}
+
+query GetMovieById($id: UUID!) @auth(level: PUBLIC) {
+  movie(id: $id) {
+    id
+    title
+    imageUrl
+    genre
+    metadata: movieMetadata_on_movie {
+      rating
+      releaseYear
+      description
+    }
+  }
+}
+```
+
+- mutations.gql
+```graphql
+mutation CreateMovie(
+  $title: String!
+  $genre: String!
+  $imageUrl: String!
+) @auth(level: PUBLIC) {
+  movie_insert(
+    data: {
+      title: $title
+      genre: $genre
+      imageUrl: $imageUrl
+    }
+  )
+}
+
+mutation CreateMovieMetadata(
+  $movieId: UUID!
+  $releaseYear: Int
+  $description: String
+  $rating: Float
+) @auth(level: PUBLIC) {
+  movieMetadata_insert(
+    data: {
+      movieId: $movieId
+      releaseYear: $releaseYear
+      description: $description
+      rating: $rating
+    }
+  )
+}
+```
+
+今回はお試しのため認証も行いませんので、mutationには`@auth(level: PUBLIC)`を付けています。
+
+ドキュメントはこの辺りが該当します。感覚としては、Firestoreのセキュリティールールと通ずるものがありそうだなと捉えました。まぁ、同じFirebaseのサービスですからね。
+https://firebase.google.com/docs/data-connect/authorization-and-security#authorize_client_queries_and_mutations
+
+## 4.4 スキーマをデプロイする
+
+以下のようにデプロイしました。
+
+```zsh
+firebase deploy --only dataconnect --project fir-playground-5015e
+(node:56412) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+=== Deploying to 'fir-playground-5015e'...
+
+i  deploying dataconnect
+i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled...
+✔  dataconnect: required API firebasedataconnect.googleapis.com is enabled
+i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled...
+✔  dataconnect: required API sqladmin.googleapis.com is enabled
+i  dataconnect: ensuring required API compute.googleapis.com is enabled...
+✔  dataconnect: required API compute.googleapis.com is enabled
+i  dataconnect: Preparing to deploy
+i  dataconnect: Successfully prepared schema and connectors
+i  dataconnect: Checking for CloudSQL resources...
+i  dataconnect: Found existing instance playground-cloud-sql.
+i  dataconnect: Found existing database playground-database.
+i  dataconnect: Deploying Data Connect schemas...
+i  dataconnect: Schemas deployed.
+i  dataconnect: Deploying connectors...
+✔  dataconnect: Deployed connector projects/fir-playground-5015e/locations/asia-northeast1/services/playground-data-connect/connectors/default
+i  dataconnect: Connectors deployed.
+✔  dataconnect: Deployment complete! View your deployed schema and connectors at https://console.firebase.google.com/project/fir-playground-5015e/dataconnect
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/fir-playground-5015e/overview
+```
+
+これにより、以下のようにテーブルが作成されたことを確認できました。
+
+![](https://storage.googleapis.com/zenn-user-upload/fb7c7595922a-20241013.png =300x)
+
+このように、コンソール上からqueryを書いてDBアクセスすることもできます。
+
+![](https://storage.googleapis.com/zenn-user-upload/c7e4f94703b8-20241013.png =300x)
+
+# 5. [firebase_data_connect](https://pub.dev/packages/firebase_data_connect)を利用してコードを書く。
+
+まだEarly Accessということもあってあまり情報が無いのですが、[Use generated Flutter SDKs](https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*1qx80yr*_up*MQ..*_ga*NzA2MzI0ODE4LjE3Mjg4MjEyMzk.*_ga_CW55HF8NVT*MTcyODgyMTIzOS4xLjAuMTcyODgyMTIzOS4wLjAuMA..)を参照しながら実装していきました。
+
+[Subscribe to changes](https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*1qx80yr*_up*MQ..*_ga*NzA2MzI0ODE4LjE3Mjg4MjEyMzk.*_ga_CW55HF8NVT*MTcyODgyMTIzOS4xLjAuMTcyODgyMTIzOS4wLjAuMA..#subscribing-changes)という説明がありましたので、以下のように`QueryRef`を提供するProviderを用意しておき、mutation実行後に`await ref.read(listMovieRefProvider).execute()`を実行することでサブスクライブさせています。
+
+```dart
+@riverpod
+QueryRef<ListMoviesData, void> listMovieRef(ListMovieRefRef ref) {
+  return DefaultConnector.instance.listMovies().ref();
+}
+
+@riverpod
+Stream<QueryResult<ListMoviesData, void>> movies(MoviesRef ref) {
+  final listRef = ref.watch(listMovieRefProvider);
+  return listRef.subscribe();
+}
+```
+
+このSubscribeはリアルタイム更新ではありません。リアルタイム更新はまだ存在しないようですね。
+https://firebase.uservoice.com/forums/948424-general/suggestions/48434600-realtime-query-updates
+
+投票しておきましょう。
+
+![](https://storage.googleapis.com/zenn-user-upload/99a9fac00ab2-20241013.png =300x)
+
+# 6. おわりに
+
+Firebase Data Connectをお試しして雰囲気を掴むことができました。
+RDBで作られた既存システムをドキュメントベースのDB(Firestore)へ移行するのはとても大変だと思いますが、Cloud SQL(PostgreSQL)であれば選択肢が広がりそうです。
+
+今回のお試しの中で、リアルタイム更新と同じく「あれ？これどうするの？？」と思ったのがトランザクションです。
+ドキュメントや、[firebase_data_connectのAPI reference](https://pub.dev/documentation/firebase_data_connect/latest/)も探してみたのですが記載は無さそうでした。
+
+この辺りはまだEAだからということでしょうか。GAされたらまた確認してみようと思います。
