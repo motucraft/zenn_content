@@ -26,7 +26,7 @@ Data Connectがサンプルとして用意しているスキーマ(Movie, MovieM
 |:--------:|:-----:|
 | ![](https://storage.googleapis.com/zenn-user-upload/670e1b421a42-20241013.gif) | ![](https://storage.googleapis.com/zenn-user-upload/e535f3fd1338-20241013.gif) |
 
-コードはこちらです。
+コードはこちらです。お試しですので、エラー処理などは入っていません。
 
 https://github.com/motucraft/firebase_playground/blob/main/lib/dataconnect/main_dataconnect.dart
 
@@ -34,3 +34,8 @@ https://github.com/motucraft/firebase_playground/blob/main/lib/dataconnect/main_
 
 https://pub.dev/packages/firebase_data_connect
 
+# 3. Data Connectを構成する
+
+FirebaseコンソールからData Connectを構成していきます。
+
+![](https://storage.googleapis.com/zenn-user-upload/427829866e1b-20241013.png =200x)
