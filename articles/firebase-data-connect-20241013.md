@@ -22,9 +22,9 @@ Firebase Data ConnectはまだGAされておらず(2024年10月現在)、限定�
 Data Connectがサンプルとして用意しているスキーマ(Movie, MovieMetadata)を使って、以下のように映画の一覧を表示(query)します。
 また、画面右上の+アイコンにて表示されるダイアログからmutationして映画の情報を追加できるようにします。
 
-|                                       mutation                                        |                                         query                                         |
-|:-------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:|
-| <img src=https://storage.googleapis.com/zenn-user-upload/670e1b421a42-20241013.gif /> | <img src=https://storage.googleapis.com/zenn-user-upload/e535f3fd1338-20241013.gif /> |
+| mutation | query |
+|:--------:|:-----:|
+| ![](https://storage.googleapis.com/zenn-user-upload/670e1b421a42-20241013.gif) | ![](https://storage.googleapis.com/zenn-user-upload/e535f3fd1338-20241013.gif) |
 
 コードはこちらです。
 
