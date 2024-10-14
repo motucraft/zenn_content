@@ -61,7 +61,7 @@ Google CloudコンソールのCloud SQLからもデータベースが作成さ�
 
 # 4. スキーマを構成する
 
-`Set up an environment with out extention for Visual Studio Code`とあります。
+`Set up an environment with our extention for Visual Studio Code`とあります。
 拡張機能のこのあたりを使用するとセットアップできそうです。
 
 ![](https://storage.googleapis.com/zenn-user-upload/197ce58c3f17-20241013.png =300x)
