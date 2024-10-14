@@ -161,7 +161,7 @@ generate:
     package: default_connector
 ```
 
-[この辺りにのドキュメント](https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*wxtk31*_up*MQ..*_ga*NTA2OTY2NTI2LjE3Mjg4MjM0NzE.*_ga_CW55HF8NVT*MTcyODgyMzQ3MC4xLjAuMTcyODgyMzQ3MC4wLjAuMA..#generate-flutter) に説明があります。
+[この辺りのドキュメント](https://firebase.google.com/docs/data-connect/flutter-sdk?_gl=1*wxtk31*_up*MQ..*_ga*NTA2OTY2NTI2LjE3Mjg4MjM0NzE.*_ga_CW55HF8NVT*MTcyODgyMzQ3MC4xLjAuMTcyODgyMzQ3MC4wLjAuMA..#generate-flutter) に説明があります。
 
 修正したら、`firebase dataconnect:sdk:generate`を実行しておきます。`firebase dataconnect:sdk:generate --watch`で変更を監視するという方法もあるようです。
 
