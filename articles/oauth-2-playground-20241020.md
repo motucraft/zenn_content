@@ -3,7 +3,7 @@ title: "【FCM】OAuth 2.0 Playground を使って楽にプッシュ通知をテ
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "firebase", "firebase_messaging"]
-published: false
+published: true
 ---
 
 # 1. はじめに
@@ -25,7 +25,7 @@ https://github.com/motucraft/firebase_playground/blob/main/tools/access_token/ac
 
 う〜ん、少し面倒ですね。わざわざアクセストークンを入手するコードを実行しなければなりませんし、セキュリティ上の観点からも秘密鍵を入手するのは可能な限り避けたいですよね。
 
-ということで、Googleの [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) を使用してもっと簡単にテストメッセージを送信してみたいと思います。OAuth 2.0 Playgroundでは、必要な権限を設定するだけでアクセストークンを取得でき、そのまま簡単にFirebaseのAPIにリクエストを送ることができます。
+ということで、Google Developersの [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) を使用してもっと簡単にテストメッセージを送信してみたいと思います。OAuth 2.0 Playgroundでは、必要な権限を設定するだけでアクセストークンを取得でき、そのまま簡単にFirebaseのAPIにリクエストを送ることができます。
 
 # 2. プッシュ通知を受信するアプリ
 
