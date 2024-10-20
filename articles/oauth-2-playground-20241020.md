@@ -12,7 +12,7 @@ FCM (Firebase Cloud Messaging) の動作確認をしたいとき皆さんはど�
 
 ![](https://storage.googleapis.com/zenn-user-upload/940faa82f857-20241019.png =300x)
 
-でもこの方法ではペイロードを色々カスタムして確認した場合に対応できませんよね。
+でもこの方法ではペイロードを色々カスタムして確認したい場合に対応できませんよね。
 
 他には、公式ドキュメント [認証情報を手動で提供する](https://firebase.google.com/docs/cloud-messaging/auth-server?hl=ja#provide-credentials-manually) に記載されている方法でしょうか。この方法はFirebaseコンソールから「新しい秘密鍵を生成」でダウンロードされるファイルを使ってアクセストークンを入手することができますね。
 
