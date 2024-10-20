@@ -65,7 +65,7 @@ https://fcm.googleapis.com/v1/projects/<Project Id>/messages:send
 
 ![](https://storage.googleapis.com/zenn-user-upload/45f102862699-20241019.png =300x)
 
-ここでは以下のようなペイロードを使用しました。
+ここでは以下のようなペイロードを使用しました。ペイロードのリファレンスは、[REST Resource: projects.messages](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages) を参照してください。
 
 ```json
 {
