@@ -1,8 +1,8 @@
 ---
-title: "【Flutter】go_routerで宣言的にダイアログやボトムシートをオープンする"
+title: "【Flutter】go_router、auto_routeで宣言的にダイアログやボトムシートをオープンする"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["flutter", "dart", "go_router"]
+topics: ["flutter", "dart", "go_router", "auto_route"]
 published: true
 ---
 
@@ -252,3 +252,11 @@ context.goNamed(RoutingConfig.bottomSheet.name)
 上記のコードを元に、deeplinkの記事を記載しました。
 
 https://zenn.dev/motu2119/articles/deep-linking-20240502
+
+# 6. さらに追記 (auto_route)
+
+[auto_route](https://pub.dev/packages/auto_route) でも同様のサンプルを用意しました。
+
+https://github.com/motucraft/auto_route_playground/blob/main/lib/main_declarative_routing.dart
+
+![](https://storage.googleapis.com/zenn-user-upload/9dc31a43cdf6-20241026.gif =300x)
