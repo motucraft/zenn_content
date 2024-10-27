@@ -257,6 +257,6 @@ https://zenn.dev/motu2119/articles/deep-linking-20240502
 
 [auto_route](https://pub.dev/packages/auto_route) でも同様のサンプルを用意しました。
 
-https://github.com/motucraft/auto_route_playground/blob/main/lib/main_declarative_routing.dart
+https://github.com/motucraft/auto_route_playground/blob/main/lib/declarative_routing/main_declarative_routing.dart
 
 ![](https://storage.googleapis.com/zenn-user-upload/9dc31a43cdf6-20241026.gif =300x)
