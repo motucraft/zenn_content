@@ -260,3 +260,8 @@ https://zenn.dev/motu2119/articles/deep-linking-20240502
 https://github.com/motucraft/auto_route_playground/blob/main/lib/declarative_routing/main_declarative_routing.dart
 
 ![](https://storage.googleapis.com/zenn-user-upload/9dc31a43cdf6-20241026.gif =300x)
+
+# 7. さらにさらに追記
+
+auto_route については、こちらの記事も記載しました。
+https://zenn.dev/motu2119/articles/tab-navigation-with-auto-route-20241103
