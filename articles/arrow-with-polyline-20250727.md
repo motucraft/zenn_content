@@ -3,7 +3,7 @@ title: "【Flutter】google_maps_flutter で矢印を引く"
 emoji: "⚾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "google_maps_flutter"]
-published: false
+published: true
 ---
 
 # 1. はじめに
