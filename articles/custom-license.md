@@ -222,6 +222,6 @@ https://github.com/flutter/flutter/issues/145453
 
 SDK標準のようにパッケージ一覧を表示したい場合のサンプルです。
 
-https://github.com/motucraft/license_registry_demo/blob/master/lib/main.dart
+https://github.com/motucraft/license_registry_demo/blob/6abb9313cca456acc2fe6a3ee4c4237fb8ba2b94/lib/main.dart
 
 ![](https://storage.googleapis.com/zenn-user-upload/712cc09be998-20250803.gif =300x)
