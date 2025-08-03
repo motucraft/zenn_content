@@ -220,3 +220,11 @@ paragraphはインデントの判定ができるようで、Apacheライセン�
 2024/3/22現在、P2にてラベリングされています。`LicenseEntryWithLineBreaks`は、個別でライセンスをロードさせたいときに使用することになると思います。
 
 https://github.com/flutter/flutter/issues/145453
+
+# 6. さらに追記
+
+SDK標準のようにパッケージ一覧を表示したい場合のサンプルです。
+
+https://github.com/motucraft/license_registry_demo/blob/master/lib/main.dart
+
+![](https://storage.googleapis.com/zenn-user-upload/712cc09be998-20250803.gif =300x)
