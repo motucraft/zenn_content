@@ -190,15 +190,12 @@ class _License extends StatelessWidget {
   }
 }
 
+
 @riverpod
 class LicenseNotifier extends _$LicenseNotifier {
   @override
-  Future<List<LicenseEntry>> build() async {
-    final entries = <LicenseEntry>[];
-    await for (final license in LicenseRegistry.licenses) {
-      entries.add(license);
-    }
-    return entries;
+  Future<List<LicenseEntry>> build() {
+    return LicenseRegistry.licenses.toList();
   }
 }
 ```
