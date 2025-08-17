@@ -45,3 +45,9 @@ https://github.com/flutter/flutter/issues/165877
 [DropdownMenuFormField](https://main-api.flutter.dev/flutter/material/DropdownMenuFormField-class.html) が用意されたことで、DropdownMenu と Form を組み合わせたいときにも対応できるようになりました。
 
 今後 stable へ反映されれば、Material 3 対応フォームの実装がより一貫したものになりそうですね。
+
+# 5. 追記
+
+[Flutter 3.35.0](https://docs.flutter.dev/release/release-notes/release-notes-3.35.0#material) で入りましたね。
+
+![](https://storage.googleapis.com/zenn-user-upload/5ee03981c7a7-20250817.png)
